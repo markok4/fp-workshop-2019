@@ -10,13 +10,8 @@ object PasswordChecker {
       containsNumber(password)
     )
 
-    val (errors, _) = validations.partition(_.isLeft)
-
-    val errorList = errors.collect { case Left(e) => e }
-
-    if (errorList.isEmpty) Right(password)
-    else Left(errorList)
-
+    val errorList = validations.collect { case Left(e) => e }
+    Either.cond(errorList.isEmpty,password, errorList)
   }
 
   private def minNumberOfChars(password: String, length: Int = 5): Either[Throwable, String] = {
