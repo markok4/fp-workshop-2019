@@ -20,6 +20,8 @@ object Impure2Pure {
     table
   }
 
-  def pureReverse(table: RankingTable): RankingTable = ???
-
+  def pureReverse(table: RankingTable): RankingTable = {
+    val revTable : RankingTable = RankingTable(table.participants.reverse)
+    revTable
+  }
 }
