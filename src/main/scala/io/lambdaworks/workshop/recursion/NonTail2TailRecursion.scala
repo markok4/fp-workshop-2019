@@ -26,5 +26,6 @@ object NonTail2TailRecursion {
       }
     }
     loop(numbers, List.empty).reverse
+
   }
 }
